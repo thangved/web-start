@@ -45,7 +45,6 @@ body::-webkit-scrollbar {
     background: url(/assets/images/mt.jpg);
     background-size: cover;
     transition: 0.4s ease;
-    filter: brightness(0.4);
 }
 
 .card.active {
@@ -133,7 +132,6 @@ a {
     border-radius: 2px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    filter: brightness(1);
 }
 
 .card.active .card-message {
