@@ -42,7 +42,7 @@ body::-webkit-scrollbar {
     position: relative;
     transform: translate(0, 0);
     left: -40px;
-    background: url(/assets/images/mt.jpg);
+    background: url(/assets/images/conan.jpg);
     background-size: cover;
     transition: 0.4s ease;
 }
