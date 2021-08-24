@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng quan về ngôn ngữ lập trình Java</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        *::selection {
+            background: #0b025d;
+            color: #fff;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        nav{
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 10px;
+            padding: 10px;
+            background: #fefefedd;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 10px #00000020;
+            border-radius: 10px;
+            width: 300px;
+            right: 100%;
+            transform: translate(30px);
+            padding-right: 30px;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+        nav:hover{
+            transform: translate(calc(100% + 10px));
+        }
+        nav a{
+            padding: 10px 0;
+            text-decoration: none;
+            color: #00095d;
+        }
+
+        .container {
+            width: 900px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 32px;
+            box-shadow: 0 0 100px #00000020;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #00095d;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        p {
+            color: #444;
+            text-align: justify;
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#gioi-thieu">Giới thiệu</a>
+        <a href="#dac-diem">Đặc điểm của ngôn ngữ lập trình Java</a>
+        <a href="#chuong-trinh">Chương trình Java cơ bản</a>
+    </nav>
+    <div class="container">
+        <h1>Tổng quan về ngôn ngữ lập trình Java</h1>
+        <h2 id="gioi-thieu">Giới thiệu</h2>
+        <p>
+            Java là một trong những ngôn ngữ lập trình hướng đối tượng. Nó được sử dụng trong phát triển phần mềm, trang
+            web, game hay ứng dụng trên các thiết bị di động.
+        </p>
+        <img src="https://raw.githubusercontent.com/thangved/images/main/2021/08/24-07-57-08-e57b6019-c568-473b-8fca-f70657d07753.jpeg"
+            alt="1">
+        <h2 id="dac-diem">Đặc điểm của ngôn ngữ lập trình Java</h2>
+        <h3>Tương tự C++, hướng đối tượng hoàn toàn</h3>
+        <p>
+            Trong quá trình tạo ra một ngôn ngữ mới phục vụ cho mục đích chạy được trên nhiều nền tảng, các kỹ sư của
+            Sun MicroSystem muốn tạo ra một ngôn ngữ dễ học và quen thuộc với đa số người lập trình. Vì vậy họ đã sử
+            dụng lại các cú pháp của C và C++.
+        </p>
+        <p>
+            Tuy nhiên, trong Java thao tác với con trỏ bị lược bỏ nhằm đảo bảo tính an toàn và dễ sử dụng hơn. Các thao
+            tác overload, goto hay các cấu trúc như struct và union cũng được loại bỏ khỏi Java.
+        </p>
+        <h3>
+            Độc lập phần cứng và hệ điều hành
+        </h3>
+        <p>
+            Một chương trình viết bằng ngôn ngữ Java có thể chạy tốt ở nhiều môi trường khác nhau. Gọi là khả năng
+            “cross-platform”. Khả năng độc lập phần cứng và hệ điều hành được thể hiện ở 2 cấp độ là cấp độ mã nguồn và
+            cấp độ nhị phân.
+        </p>
+        <h2 id="chuong-trinh">Chương trình Java cơ bản</h2>
+        <img src="https://raw.githubusercontent.com/thangved/images/main/2021/08/24-08-01-02-code.png" alt="2">
+        <p>
+            Một chương trình Java luôn nằm trong một class và phương thức main là phương thức được gọi đầu tiên.
+        </p>
+    </div>
+</body>
+
+</html>
