@@ -59,7 +59,7 @@
             flex-wrap: wrap;
         }
 
-        .input-item label{
+        .input-item label {
             width: 100px;
         }
 
@@ -186,13 +186,17 @@
 
         changeButtons.forEach(changeButton => {
             changeButton.addEventListener('click', event => {
-                if (registerForm.style.display !== 'none')
+                if (registerForm.style.display !== 'none') {
                     registerForm.style.display = 'none'
+                    document.title = 'Đăng Nhập'
+                }
                 else
                     registerForm.style.display = 'flex'
 
-                if (loginForm.style.display !== 'none')
+                if (loginForm.style.display !== 'none') {
                     loginForm.style.display = 'none'
+                    document.title = 'Đăng Ký'
+                }
                 else
                     loginForm.style.display = 'flex'
             })
