@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Alata', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(https://images5.alphacoders.com/351/351817.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        .form-container {
+            width: 480px;
+            max-width: 95%;
+            padding: 20px 36px;
+            background: #fff;
+            box-shadow: 0 0 10px #00000020;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .form-container input,
+        select {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            border: none;
+            border: 2px solid #ddd;
+            background: #fcfcfc;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .form-container .input-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            padding: 5px 0;
+            flex-wrap: wrap;
+        }
+
+        .input-item input {
+            width: auto;
+        }
+
+        .form-container button {
+            padding: 10px;
+            min-width: 150px;
+            background: #ffa237;
+            border: none;
+            border-radius: 100px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.4s ease;
+            margin: 5px;
+        }
+
+        .form-container button.invert {
+            background: #fff;
+            color: #ffa237;
+            border: 2px solid #ffa237;
+        }
+
+        .form-container button:hover {
+            opacity: 0.8;
+            padding: 10px 20px;
+            min-width: 170px;
+        }
+    </style>
+    <title>Đăng nhập</title>
+</head>
+
+<body>
+    <form action="" class="form-container" method="POST" id="login">
+
+        <h1>Đăng Nhập</h1>
+
+        <input placeholder="Tên đăng nhập hoặc email" type="text" required>
+
+        <input placeholder="Mật khẩu" type="text" required>
+
+        <div class="input-item">
+            <input type="checkbox">Nhớ mật khẩu
+        </div>
+
+        <div class="input-item">
+            <button type="submit">
+                Đăng Nhập
+            </button>
+        </div>
+
+        <div class="input-item">
+            Bạn Chưa Có Tài Khoản?&nbsp;
+            <span class="change-btn" style="color: #4485ff; cursor: pointer;">
+                Đăng Ký Ngay!
+            </span>
+        </div>
+
+    </form>
+    <form action="#" class="form-container" method="POST" id="register">
+
+        <h1>Đăng Ký</h1>
+
+        <input type="text" minlength="3" placeholder="Nhập Tên Đăng Nhập" required>
+
+        <input type="email" placeholder="Nhập Email" required>
+
+        <input minlength="6" autocomplete="off" type="password" placeholder="Nhập Mật khẩu" required>
+
+        <input minlength="6" autocomplete="off" type="password" placeholder="Nhập Lại Mật khẩu" required>
+
+        <div class="input-item">
+            Giới tính:
+            <input name="gender" type="radio">
+            Nam
+            <input name="gender" type="radio">
+            Nữ
+        </div>
+
+        <div class="input-item">
+            Ngày Sinh:
+            <input type="date" placeholder="Ngày Sinh">
+        </div>
+
+        <div class="input-item">
+            Chọn Quốc Gia:
+            <select name="regions" id="regions">
+            </select>
+        </div>
+
+        <div class="input-item">
+            <button type="submit">
+                Đăng Ký
+            </button>
+            <button class="invert" type="reset">
+                Nhập Lại
+            </button>
+        </div>
+
+        <div class="input-item">
+            Bạn Đã Có Tài Khoản?&nbsp;
+            <span class="change-btn" style="color: #4485ff; cursor: pointer;">
+                Đăng Nhập Ngay!
+            </span>
+        </div>
+
+    </form>
+    <script defer>
+        const REGION_API = 'https://gist.githubusercontent.com/keeguon/2310008/raw/bdc2ce1c1e3f28f9cab5b4393c7549f38361be4e/countries.json'
+
+        const loginForm = document.getElementById('login')
+        const registerForm = document.getElementById('register')
+        const changeButtons = document.querySelectorAll('.change-btn')
+        const regionSelect = document.getElementById('regions')
+
+        loginForm.style.display = 'none'
+
+        changeButtons.forEach(changeButton => {
+            changeButton.addEventListener('click', event => {
+                if (registerForm.style.display !== 'none')
+                    registerForm.style.display = 'none'
+                else
+                    registerForm.style.display = 'flex'
+
+                if (loginForm.style.display !== 'none')
+                    loginForm.style.display = 'none'
+                else
+                    loginForm.style.display = 'flex'
+            })
+        })
+
+        fetch(REGION_API)
+            .then(res => JSON.stringify(res))
+            .then(data => {
+                console.log(data)
+            })
+    </script>
+</body>
+
+</html>
