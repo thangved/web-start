@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://minhthangdev.pw/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://minhthangdev.pw/logo192.png" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 
@@ -54,12 +56,20 @@
             align-items: center;
             justify-content: flex-start;
             width: 100%;
-            padding: 5px 0;
             flex-wrap: wrap;
+        }
+
+        .input-item label{
+            width: 100px;
         }
 
         .input-item input {
             width: auto;
+        }
+
+        .input-item select,
+        input[type=date] {
+            flex: 1;
         }
 
         .form-container button {
@@ -90,7 +100,7 @@
 </head>
 
 <body>
-    <form action="" class="form-container" method="POST" id="login">
+    <form action="" class="form-container" id="login">
 
         <h1>Đăng Nhập</h1>
 
@@ -116,7 +126,7 @@
         </div>
 
     </form>
-    <form action="#" class="form-container" method="POST" id="register">
+    <form action="#" class="form-container" id="register">
 
         <h1>Đăng Ký</h1>
 
@@ -129,7 +139,7 @@
         <input minlength="6" autocomplete="off" type="password" placeholder="Nhập Lại Mật khẩu" required>
 
         <div class="input-item">
-            Giới tính:
+            <label>Giới tính: </label>
             <input name="gender" type="radio">
             Nam
             <input name="gender" type="radio">
@@ -137,12 +147,12 @@
         </div>
 
         <div class="input-item">
-            Ngày Sinh:
+            <label>Ngày Sinh: </label>
             <input type="date" placeholder="Ngày Sinh">
         </div>
 
         <div class="input-item">
-            Chọn Quốc Gia:
+            <label>Chọn Quốc Gia: </label>
             <select name="regions" id="regions">
             </select>
         </div>
@@ -165,14 +175,14 @@
 
     </form>
     <script defer>
-        const REGION_API = 'https://gist.githubusercontent.com/keeguon/2310008/raw/bdc2ce1c1e3f28f9cab5b4393c7549f38361be4e/countries.json'
+        const REGION_API = 'https://raw.githubusercontent.com/thangved/web-start/main/data/countries.json'
 
         const loginForm = document.getElementById('login')
         const registerForm = document.getElementById('register')
         const changeButtons = document.querySelectorAll('.change-btn')
         const regionSelect = document.getElementById('regions')
 
-        loginForm.style.display = 'none'
+        registerForm.style.display = 'none'
 
         changeButtons.forEach(changeButton => {
             changeButton.addEventListener('click', event => {
@@ -188,11 +198,21 @@
             })
         })
 
-        fetch(REGION_API)
-            .then(res => JSON.stringify(res))
-            .then(data => {
-                console.log(data)
+        const setRegionSelect = (regions = [
+            {
+                name: String,
+                code: String
+            }
+        ]) => {
+            regions.forEach(region => {
+                regionSelect.innerHTML += `<option value="${region.code}">
+                    ${region.name}
+                    </option>`
             })
+        }
+        fetch(REGION_API)
+            .then(res => res.json())
+            .then(setRegionSelect)
     </script>
 </body>
 
