@@ -1,0 +1,26 @@
+{
+    "description": "Danh sách bài tập",
+    "data": [
+        {
+            "title": "Chương 1",
+            "data": []
+        },
+        {
+            "title": "Chương 2",
+            "data": [
+                {
+                    "title": "Ví dụ về sử dụng các thẻ header",
+                    "url": "./chuong2/vidu1-chuong2.html"
+                },
+                {
+                    "title": "Ví dụ sử dụng table",
+                    "url": "./chuong2/vidu2-chuong2.html"
+                },
+                {
+                    "title": "Ví dụ sử dụng form",
+                    "url": "./chuong2/vidu3-chuong2.html"
+                }
+            ]
+        }
+    ]
+}

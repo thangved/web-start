@@ -13,31 +13,51 @@
 <body>
     <div class="container">
         <h1>Danh Sách bài tập về nhà</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Chương</th>
-                    <th scope="col">Tên Chương</th>
-                    <th scope="col">Mô Tả Ngắn</th>
-                    <th scope="col">Link</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td>Lorem</td>
-                    <td><a href="./chuong1">chuong1</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td>Lorem</td>
-                    <td><a href="./chuong2">chuong2</a></td>
-                </tr>
-            </tbody>
-        </table>
     </div>
+    <script>
+        const container = document.querySelector('.container')
+
+        const setData = (data = {
+            description: String,
+            data: [
+                {
+                    title: String,
+                    data: [
+                        {
+                            title: String,
+                            url: String
+                        }
+                    ]
+                }
+            ]
+        }) => {
+            data.data.forEach(data => {
+                const rdId = Math.random().toString(36).slice(3)
+                container.innerHTML += `
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="h${rdId}">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#i${rdId}" aria-expanded="false" aria-controls="i${rdId}">
+                        ${data.title}
+                    </button>
+                </h2>
+                <div id="i${rdId}" class="accordion-collapse collapse" aria-labelledby="h${rdId}"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        ${data.data.map((e, i) => `<a href="${e.url}">${i + 1}. ${e.title || 'Ví dụ không có tiêu đề'}</a><hr/>`).join('')}
+                    </div>
+                </div>
+            </div>
+        </div>`
+            })
+        }
+
+        const FETCH_API = `../data/data.json`
+        fetch(FETCH_API)
+            .then(res => res.json())
+            .then(setData)
+    </script>
 </body>
 
 </html>
